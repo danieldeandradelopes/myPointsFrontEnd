@@ -1,0 +1,52 @@
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
+
+import { Link } from 'react-router-dom';
+// import { signOut } from '~/store/modules/auth/actions';
+
+import { signUpRequest } from '~/store/modules/auth/actions';
+
+// import AvatarInput from './AvatarInput';
+
+import { Container, ButtonBack, ButtonAdd } from './styles';
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('O nome é obrigatório'),
+  email: Yup.string()
+    .email('Insira um e-mail válido!')
+    .required('O e-mail é obrigatório!'),
+  cpf: Yup.number().required('Insira um cpf válido!'),
+});
+
+export default function RegisterProvider() {
+  const dispatch = useDispatch();
+  // const profile = useSelector(state => state.user.profile);
+
+  function handleSubmit({ name, email, cpf }) {
+    dispatch(signUpRequest(name, email, cpf));
+  }
+
+  return (
+    <Container>
+      <Form schema={schema} onSubmit={handleSubmit}>
+        <h1>Adicionar Colaborador</h1>
+        {/* <AvatarInput name="avatar_id" /> */}
+
+        <Input name="name" placeholder="Nome Completo" />
+        <Input name="email" placeholder="E-mail do colaborador" type="email" />
+        <Input name="cpf" placeholder="CPF" type="number" />
+        <hr />
+
+        <ButtonAdd type="submit">Cadastrar</ButtonAdd>
+      </Form>
+
+      <Link to="/dashboard">
+        <ButtonBack type="button" onClick={() => {}}>
+          Voltar
+        </ButtonBack>
+      </Link>
+    </Container>
+  );
+}
