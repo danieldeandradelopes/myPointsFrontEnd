@@ -36,7 +36,7 @@ export default function RegisterClient() {
 
         <Input name="name" placeholder="Nome Completo" />
         <Input name="email" placeholder="E-mail do cliente" type="email" />
-        <Input name="cpf" placeholder="CPF" type="number" min="0" />
+        <Input name="cpf" placeholder="CPF" type="number" minLength="0" />
         <hr />
 
         <ButtonAdd type="submit">Cadastrar</ButtonAdd>

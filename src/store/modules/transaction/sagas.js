@@ -13,8 +13,8 @@ export function* registerPoints({ payload }) {
     // console.log(date);
 
     yield call(api.post, 'transactions', {
-      cpf,
       date,
+      cpf,
       cash_value,
     });
 

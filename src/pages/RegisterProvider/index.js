@@ -17,7 +17,7 @@ const schema = Yup.object().shape({
   email: Yup.string()
     .email('Insira um e-mail válido!')
     .required('O e-mail é obrigatório!'),
-  cpf: Yup.number().required('Insira um cpf válido!'),
+  cpf: Yup.string().required('Insira um cpf válido!'),
 });
 
 export default function RegisterProvider() {
@@ -36,7 +36,7 @@ export default function RegisterProvider() {
 
         <Input name="name" placeholder="Nome Completo" />
         <Input name="email" placeholder="E-mail do colaborador" type="email" />
-        <Input name="cpf" placeholder="CPF" type="number" />
+        <Input name="cpf" placeholder="CPF" type="number" minLength="0" />
         <hr />
 
         <ButtonAdd type="submit">Cadastrar</ButtonAdd>

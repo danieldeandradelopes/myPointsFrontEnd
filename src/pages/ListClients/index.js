@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaEye, FaRegTrashAlt } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 
 import api from '~/services/api';
 
